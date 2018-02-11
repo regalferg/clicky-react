@@ -12,6 +12,9 @@ class App extends Component {
   state = {
     friends,
     count: 0,
+    top:0,
+    shake:0,
+    newList:[]
   };
  
 
@@ -22,9 +25,23 @@ class App extends Component {
     this.setState({ friends });
 
     this.setState({ count: this.state.count + 1 });
-    if (this.state.count <= 1) {
+    // this.setState({ top: this.state.top + 1 });
+  
+    
+    if (this.state.count >= this.state.top) {
+      this.setState({ top: this.state.top + 1 });
+      
+    }
+
+    
+    this.setState({newList:this.state.newList.concat(id)
+    }, () => console.log(this.state.newList) );
+    
+    if (this.state.newList.find((e) => e === id) ) {
+     
       console.log("Boom");
-      // this.setState({ count: this.state.count = 0 });
+      this.setState(state =>({count: state.count = 0 }));
+      this.setState(state =>({newList: state.newList = [] }));
     }
 
   };
@@ -36,14 +53,16 @@ class App extends Component {
      
       <Wrapper>
          <Counter
-          count={this.state.count}/>
+          count={this.state.count}
+          top={this.state.top}/>
         <Title>Friends List</Title>
        
         {this.state.friends.map(friend => (
           <FriendCard
-            sortFriend={this.sortFriend}
-            id={friend.id}
             key={friend.id}
+            id={friend.id}
+            shake={this.state.shake}
+            sortFriend={this.sortFriend}
             name={friend.name}
             image={friend.image}
             occupation={friend.occupation}
