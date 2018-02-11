@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
@@ -2435,3 +2435,6 @@ If you have ideas for more “How To” recipes that should be on this page, [le
 =======
 # clicky-react
 >>>>>>> Create README.md
+=======
+# clicky-react
+>>>>>>> e6882bc93c7bf66489e5cc8d38beb3e0c9bbe1d1
